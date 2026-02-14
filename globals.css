@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Utility Classes */
+.nyt-divider {
+  border: none;
+  border-top: 1px solid #E5E5E5;
+  margin: 2rem 0;
+}
+
+.drop-cap::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-weight: bold;
+  font-size: 3.2em;
+  line-height: 1;
+  float: left;
+  margin-right: 0.15em;
+  margin-top: 0.05em;
+}
+
+.prose-nyt {
+  max-width: 65ch;
+  line-height: 1.7;
+  font-family: 'Lora', 'Source Serif 4', serif;
+  color: #1A1A1A;
+  background: #FCFAF8;
+  padding: 2rem 0;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lora';
+  src: url('/fonts/Lora-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
