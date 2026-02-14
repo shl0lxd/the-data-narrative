@@ -3,11 +3,15 @@
 @tailwind utilities;
 
 /* Custom Utility Classes */
+
 .nyt-divider {
   border: none;
   border-top: 1px solid #E5E5E5;
+  height: 1px;
+  background: #E5E5E5;
   margin: 2rem 0;
 }
+
 
 .drop-cap::first-letter {
   font-family: 'Playfair Display', serif;
@@ -17,6 +21,8 @@
   float: left;
   margin-right: 0.15em;
   margin-top: 0.05em;
+  height: 3em;
+  display: block;
 }
 
 .prose-nyt {

@@ -1,4 +1,4 @@
-import '../../globals.css';
+import '@/globals.css';
 
 export const metadata = {
   title: 'The Data Narrative | Mumbai Financial Ledger',
@@ -8,7 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-paper text-ink selection:bg-gray-200">
+      <body className="bg-paper text-ink font-body selection:bg-gray-200">
         {children}
       </body>
     </html>

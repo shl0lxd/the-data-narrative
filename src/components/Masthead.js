@@ -17,7 +17,7 @@ export default function Masthead() {
     <header className="bg-paper text-ink w-full">
       {/* Top Row: Brand Name */}
       <div className="flex justify-center items-center py-6">
-        <h1 className="font-serif text-4xl md:text-5xl font-bold text-center tracking-tight">
+        <h1 className="font-serif text-6xl font-bold text-center tracking-tighter">
           The Data Narrative
         </h1>
       </div>
