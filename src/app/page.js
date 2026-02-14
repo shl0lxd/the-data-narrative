@@ -3,6 +3,7 @@ import Masthead from '../components/Masthead';
 import AboutSection from '../components/AboutSection';
 import NewsletterForm from '../components/NewsletterForm';
 import DataChartSection from '../components/DataChartSection';
+import ScrollToHash from '../components/ScrollToHash';
 import { supabase } from '../utils/supabaseClient';
 
 /** Relevance Feed: fetch from posts_with_relevance, sort by relevance_score descending. */
@@ -12,19 +13,6 @@ export default async function HomePage() {
     .select('id, slug, title, deck, published_at, created_at, like_count, relevance_score')
     .order('relevance_score', { ascending: false });
 
-  // Guard: If error or no data (e.g. view missing or empty), return empty state so build doesn't crash
-  if (error || !posts) {
-    return (
-      <>
-        <Masthead />
-        <main className="bg-paper text-ink min-h-screen p-12 text-center">
-          <h1 className="font-serif text-3xl">The Ledger is currently empty.</h1>
-          <p className="mt-4 text-zinc-600">Drafting new narratives...</p>
-        </main>
-      </>
-    );
-  }
-
   const chartData = [
     { date: '2026-01', value: 120 },
     { date: '2026-02', value: 130 },
@@ -32,11 +20,14 @@ export default async function HomePage() {
     { date: '2026-04', value: 140 },
   ];
 
+  const hasPosts = !error && posts && posts.length > 0;
+
   return (
     <>
+      <ScrollToHash />
       <Masthead />
-      <section className="flex flex-col items-center">
-        {posts?.length > 0 ? (
+      <section className="flex flex-col items-center" id="markets" aria-label="Markets & narratives">
+        {hasPosts ? (
           <ul className="w-full max-w-3xl mx-auto mb-12 space-y-8">
             {posts?.map((post) => (
               <li key={post.id}>
@@ -56,12 +47,17 @@ export default async function HomePage() {
               </li>
             ))}
           </ul>
-        ) : null}
-        <div className="my-8 w-full max-w-2xl">
+        ) : (
+          <div className="w-full max-w-3xl mx-auto mb-12 py-12 text-center">
+            <h2 className="font-serif text-3xl text-ink">The Ledger is currently empty.</h2>
+            <p className="mt-4 text-zinc-600">Drafting new narratives...</p>
+          </div>
+        )}
+        <div className="my-8 w-full max-w-2xl" id="property" aria-label="Property & data">
           <DataChartSection data={chartData} />
         </div>
         <AboutSection />
-        <div className="my-8">
+        <div className="my-8 w-full" id="newsletter" aria-label="Newsletter signup">
           <NewsletterForm />
         </div>
       </section>

@@ -48,3 +48,8 @@ export async function subscribe(formData) {
 
   return { success: true };
 }
+
+/** Wrapper for useActionState: (prevState, formData) => result */
+export async function subscribeFormAction(prevState, formData) {
+  return await subscribe(formData);
+}
