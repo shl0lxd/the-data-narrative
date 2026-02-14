@@ -1,7 +1,12 @@
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+@import "tailwindcss";
+
+
+body {
+  /* Use default Tailwind or browser styles; custom colors applied via className in layout.js */
+  /* antialiased is handled by Tailwind utility in layout.js */
+}
 
 /* Custom Utility Classes */
 

@@ -15,7 +15,7 @@ export default function Masthead() {
 
   return (
     <header className="bg-paper text-ink border-b border-zinc-200 shadow-sm py-8 mb-12">
-      <h1 className="font-serif text-5xl tracking-tight text-center mb-8">
+      <h1 className="font-serif text-6xl tracking-tighter text-center mb-8">
         The Data Narrative
       </h1>
       <nav className="flex justify-center gap-x-8 mt-4">
