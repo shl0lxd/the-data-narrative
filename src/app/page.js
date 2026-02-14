@@ -1,13 +1,9 @@
+
 import Masthead from '../components/Masthead';
 import HeroArticle from '../components/HeroArticle';
-import dynamic from 'next/dynamic';
-
-const DataChart = dynamic(() => import('../components/DataChart'), {
-  ssr: false,
-  loading: () => <div className="h-64 bg-gray-50 animate-pulse" />,
-});
 import AboutSection from '../components/AboutSection';
 import NewsletterForm from '../components/NewsletterForm';
+import DataChartSection from '../components/DataChartSection';
 
 export default function HomePage() {
   // Example chart data
@@ -24,7 +20,7 @@ export default function HomePage() {
       <section className="flex flex-col items-center">
         <HeroArticle />
         <div className="my-8 w-full max-w-2xl">
-          <DataChart data={chartData} />
+          <DataChartSection data={chartData} />
         </div>
         <AboutSection />
         <div className="my-8">
