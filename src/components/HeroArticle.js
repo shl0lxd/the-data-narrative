@@ -19,7 +19,7 @@ export default function HeroArticle({
         <div className="text-center text-xs font-serif italic text-zinc-500 mb-4">
           {imageCaption}
         </div>
-        <h2 className="font-serif text-5xl font-bold tracking-tight mb-4">
+        <h2 className="font-serif text-5xl tracking-tight mb-4">
           {headline}
         </h2>
         <div className="text-xl font-body mb-2">
@@ -32,7 +32,7 @@ export default function HeroArticle({
         </div>
         <div className="nyt-divider h-[1px] bg-zinc-200 w-full my-8" />
       </div>
-      <div className="prose prose-lg prose-ink max-w-prose mx-auto">
+      <div className="text-lg leading-relaxed max-w-prose mx-auto">
         <p className="drop-cap">
           Mumbai’s real estate market has seen unprecedented growth in 2026, with Bandra West leading the surge. New data reveals a 12.4% increase in property values, driven by shifting demographics and increased demand for premium housing.
         </p>
