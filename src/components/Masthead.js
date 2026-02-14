@@ -1,4 +1,5 @@
 import React from 'react';
+import MastheadAdminLink from './MastheadAdminLink';
 
 const NAV_LINKS = [
   { name: 'Markets', href: '#' },
@@ -7,7 +8,6 @@ const NAV_LINKS = [
 ];
 
 export default function Masthead() {
-  // Get current date in readable format
   const today = new Date();
   const dateString = today.toLocaleDateString('en-IN', {
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
@@ -18,7 +18,7 @@ export default function Masthead() {
       <h1 className="font-serif text-6xl tracking-tighter text-center mb-8">
         The Data Narrative
       </h1>
-      <nav className="flex justify-center gap-x-8 mt-4">
+      <nav className="flex justify-center items-center gap-x-8 mt-4 flex-wrap">
         {NAV_LINKS.map(link => (
           <a
             key={link.name}
@@ -28,6 +28,7 @@ export default function Masthead() {
             {link.name}
           </a>
         ))}
+        <MastheadAdminLink />
       </nav>
       <div className="flex justify-center mt-4">
         <button className="border-2 border-ink rounded-full px-6 py-2 font-sans font-semibold text-ink bg-paper hover:bg-ink hover:text-paper transition-colors shadow-sm hover:scale-105">
