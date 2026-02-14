@@ -14,48 +14,32 @@ export default function Masthead() {
   });
 
   return (
-    <header className="bg-paper text-ink w-full">
-      {/* Top Row: Brand Name */}
-      <div className="flex justify-center items-center py-6">
-        <h1 className="font-serif text-6xl font-bold text-center tracking-tight">
-          The Data Narrative
-        </h1>
-      </div>
-
-      {/* Middle Row: Divider */}
-      <hr className="nyt-divider mx-auto w-full" />
-
-      {/* Info Bar */}
-      <div className="flex flex-row items-center justify-between py-2 px-4 md:px-8 prose-nyt text-xs md:text-sm uppercase font-sans">
-        {/* Left: Date & Location (hide date on mobile) */}
-        <div className="hidden md:block">
-          {dateString} &mdash; Mumbai, India
-        </div>
-        {/* Center: Navigation Links */}
-        <nav className="flex-1 flex justify-center gap-6">
-          {NAV_LINKS.map(link => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="font-sans text-xs md:text-sm uppercase tracking-widest hover:opacity-70 transition-opacity"
-            >
-              {link.name}
-            </a>
-          ))}
-        </nav>
-        {/* Right: Subscribe Button */}
-        <div className="flex justify-end">
-          <button
-            className="border border-ink rounded px-4 py-1 text-ink bg-transparent font-sans text-xs md:text-sm uppercase tracking-widest hover:bg-ink hover:text-paper transition-colors"
-            type="button"
+    <header className="bg-paper text-ink border-b border-zinc-200 shadow-sm py-8 mb-12">
+      <h1 className="font-serif text-7xl md:text-8xl font-bold tracking-tighter text-center mb-2">
+        The Data Narrative
+      </h1>
+      <nav className="flex justify-center gap-x-8 mt-4">
+        {NAV_LINKS.map(link => (
+          <a
+            key={link.name}
+            href={link.href}
+            className="font-sans text-sm uppercase tracking-widest hover:underline hover:opacity-80 transition"
           >
-            Subscribe
-          </button>
-        </div>
+            {link.name}
+          </a>
+        ))}
+      </nav>
+      <div className="flex justify-center mt-4">
+        <button className="border-2 border-ink rounded-full px-6 py-2 font-sans font-semibold text-ink bg-paper hover:bg-ink hover:text-paper transition-colors shadow-sm hover:scale-105">
+          Subscribe
+        </button>
       </div>
-
-      {/* Bottom Row: Divider */}
-      <hr className="nyt-divider mx-auto w-full" />
+      <div className="flex justify-center mt-4">
+        <div className="nyt-divider h-[1px] bg-zinc-200 w-full my-8" />
+      </div>
+      <div className="flex justify-center mt-2 text-xs text-zinc-500">
+        <span className="hidden md:inline">{dateString} &mdash; Mumbai, India</span>
+      </div>
     </header>
   );
 }
