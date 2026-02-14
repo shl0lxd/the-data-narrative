@@ -7,10 +7,23 @@ import { supabase } from '../utils/supabaseClient';
 
 /** Relevance Feed: fetch from posts_with_relevance, sort by relevance_score descending. */
 export default async function HomePage() {
-  const { data: posts = [] } = await supabase
+  const { data: posts, error } = await supabase
     .from('posts_with_relevance')
     .select('id, slug, title, deck, published_at, created_at, like_count, relevance_score')
     .order('relevance_score', { ascending: false });
+
+  // Guard: If error or no data (e.g. view missing or empty), return empty state so build doesn't crash
+  if (error || !posts) {
+    return (
+      <>
+        <Masthead />
+        <main className="bg-paper text-ink min-h-screen p-12 text-center">
+          <h1 className="font-serif text-3xl">The Ledger is currently empty.</h1>
+          <p className="mt-4 text-zinc-600">Drafting new narratives...</p>
+        </main>
+      </>
+    );
+  }
 
   const chartData = [
     { date: '2026-01', value: 120 },
@@ -23,9 +36,9 @@ export default async function HomePage() {
     <>
       <Masthead />
       <section className="flex flex-col items-center">
-        {posts.length > 0 ? (
+        {posts?.length > 0 ? (
           <ul className="w-full max-w-3xl mx-auto mb-12 space-y-8">
-            {posts.map((post) => (
+            {posts?.map((post) => (
               <li key={post.id}>
                 <article className="bg-white/90 rounded-xl shadow-sm px-8 py-8">
                   <Link href={`/posts/${post.slug}`} className="block group">
